@@ -130,6 +130,8 @@ checkpoint = torch.load('project_2_model_weights.pth')
 model.load_state_dict(checkpoint)
 model.eval()
 
+##training
+
 # loss = []
 # validation_loss =[]
 # epochs = 100
@@ -169,6 +171,7 @@ model.eval()
 
 # torch.save(model.state_dict(),'project_2_model_weights.pth')
 
+
 image = Image.open(r'D:\internship\Project_2\datasets\MVTech\transistor\test\cut_lead\003.png')
 image = transform(image)
 with torch.inference_mode():
@@ -187,14 +190,14 @@ plt.show()
 
 def decision_function(segmentation_map):  
 
-    mean_top_10_values = []
+    mean_top_recon_values = []
 
     for map in segmentation_map:
         flattened_tensor = map.reshape(-1)
         sorted_tensor, _ = torch.sort(flattened_tensor,descending=True)
         mean_top_10_value = sorted_tensor[:10].mean()
-        mean_top_10_values.append(mean_top_10_value)
-    return torch.stack(mean_top_10_values)
+        mean_top_recon_values.append(mean_top_10_value)
+    return torch.stack(mean_top_recon_values)
 
 model.eval()
 
