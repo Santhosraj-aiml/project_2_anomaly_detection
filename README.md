@@ -61,7 +61,7 @@ Compute reconstruction error using Mean Squared Error (MSE).
 
 Apply a decision function to classify an image as normal or anomalous.
 
-Generate an anomaly segmentation map (if applicable) to visualize the defect.
+Generate an anomaly segmentation map to visualize the defect.
 
 **7. Thresholding for Decision Making**
 
